@@ -1,17 +1,50 @@
-class Foo { // this is ES6 syntax!
-  constructor(msg) {
-    this.msg = msg;
+class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      password: "",
+      email: ""
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
-  speak() {
-    console.log(this.msg);
+
+  handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    return (
+      <form>
+      	<label>
+          Email:
+          <input
+            name="email"
+            type="email"
+            value={this.state.email}
+            onChange={this.handleInputChange} />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            name="password"
+            type="password"
+            value={this.state.password}
+            onChange={this.handleInputChange} />
+        </label>       
+      </form>
+    );
   }
 }
 
-var ipsumText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.';
 ReactDOM.render(
-  <div>{ipsumText}</div>,
-  document.getElementById('example')
+  <LoginForm />,
+  document.getElementById('container')
 );
-
-var f = new Foo('Hi there, console!');
-f.speak();

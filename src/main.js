@@ -30,7 +30,9 @@ class LoginForm extends React.Component {
             value={this.state.email}
             onChange={this.handleInputChange} />
         </label>
+
         <br />
+
         <label>
           Password:
           <input
@@ -38,7 +40,11 @@ class LoginForm extends React.Component {
             type="password"
             value={this.state.password}
             onChange={this.handleInputChange} />
-        </label>       
+        </label>
+
+        <br />
+
+        <input type="submit" />       
       </form>
     );
   }

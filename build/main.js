@@ -62,7 +62,9 @@ var LoginForm = function (_React$Component) {
             type: "password",
             value: this.state.password,
             onChange: this.handleInputChange })
-        )
+        ),
+        React.createElement("br", null),
+        React.createElement("input", { type: "submit" })
       );
     }
   }]);

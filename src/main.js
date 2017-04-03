@@ -1,3 +1,6 @@
+//import SignUpForm from 'components/SignUpForm.jsx';
+
+/*
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -44,13 +47,19 @@ class LoginForm extends React.Component {
 
         <br />
 
-        <input type="submit" />       
+        <input type="submit" />
       </form>
     );
   }
 }
+*/
 
 ReactDOM.render(
-  <LoginForm />,
+  <SignUpForm
+    onSubmit={(e) => console.log('submitted')}
+    onChange={(e) => console.log('changed')}
+    errors={{ email: 'Invalid' }}
+    user={{ email: 'jane@doe.com', name: 'Jane Doe' }}
+  />,
   document.getElementById('container')
 );
